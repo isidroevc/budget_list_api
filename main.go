@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/isidroevc/blist_api/facing"
@@ -13,7 +12,7 @@ func main() {
 
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Error loading .env file %s", err)
+		fmt.Printf("Error loading .env file %s\n", err)
 	}
 	port := os.Getenv("PORT")
 	app := facing.BuildApp()

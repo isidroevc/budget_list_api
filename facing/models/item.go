@@ -1,6 +1,6 @@
 package models
 
-import "github.com/isidroevc/blist_api/domain/usecase/models"
+import add_item_use_case "github.com/isidroevc/blist_api/domain/usecase"
 
 type CreateItemInput struct {
 	Description  string `json:"description"`
@@ -24,8 +24,8 @@ func NewCreateItemInput(description string, unitaryPrice string, qty uint64) (*C
 	}, nil
 }
 
-func (c *CreateItemInput) ToCreateItemInput() (*models.CreateItemInput, error) {
-	ci, err := models.NewCreateItemInput(
+func (c *CreateItemInput) ToCreateItemInput() (*add_item_use_case.CreateItemInput, error) {
+	ci, err := add_item_use_case.NewCreateItemInput(
 		c.Description,
 		c.UnitaryPrice,
 		c.Qty,

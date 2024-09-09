@@ -2,7 +2,7 @@ package facing
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/isidroevc/blist_api/domain/usecase"
+	add_item_use_case "github.com/isidroevc/blist_api/domain/usecase"
 	"github.com/isidroevc/blist_api/facing/models"
 
 	fiberSwagger "github.com/swaggo/fiber-swagger"
@@ -32,7 +32,7 @@ func createItem(c *fiber.Ctx) error {
 	if err != nil {
 		return err
 	}
-	result, err := usecase.CreateItem(createItemInput)
+	result, err := add_item_use_case.CreateItem(createItemInput)
 	if err != nil {
 		return err
 	}
