@@ -16,6 +16,6 @@ workflows:
           dockerfile: Dockerfile
           platform: linux/amd64
           push_image: true
-          region: AWS_DEFAULT_REGION
+          region: ${AWS_DEFAULT_REGION}
           repo: blist/budget_list
           tag: ${CIRCLE_SHA1}
