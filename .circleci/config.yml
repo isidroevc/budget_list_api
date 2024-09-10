@@ -13,7 +13,6 @@ workflows:
                 region: AWS_DEFAULT_REGION
           context: aws-dev
           dockerfile: Dockerfile
-          executors: base
           platform: linux/amd64
           push_image: true
           region: AWS_DEFAULT_REGION
