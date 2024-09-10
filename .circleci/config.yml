@@ -1,11 +1,16 @@
 version: 2.1
-
 orbs:
-  aws-ecr: circleci/aws-ecr@9.3.2
-
+  aws-cli: circleci/aws-cli@4.0
+  aws-ecr: circleci/aws-ecr@9.0
 workflows:
-  build-and-deploy:
+  build_and_push_image:
     jobs:
-      - aws-ecr/build-and-push-image:
-          repo: "$blist/budget_list"
-          tag: "${CIRCLE_SHA1}"
+      - aws-ecr/build_and_push_image:
+          context: aws-dev
+          dockerfile: Dockerfile
+          executors: base
+          platform: linux/amd64
+          push_image: true
+          region: ${AWS_DEFAULT_REGION}
+          repo: blist/budget_list
+          tag: "$CIRCLE_SHA1"
