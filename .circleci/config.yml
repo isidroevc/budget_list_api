@@ -4,12 +4,8 @@ orbs:
   aws-ecr: circleci/aws-ecr@9.3.2
 
 workflows:
-  build_and_push_image:
+  build-and-deploy:
     jobs:
       - aws-ecr/build-and-push-image:
-          context: aws-dev
-          create-repo: true
-          dockerfile: Dockerfile
-          path: .
-          repo: blist/budget_list
-          tag: "$CIRCLE_SHA1"
+          repo: "$blist/budget_list"
+          tag: "${CIRCLE_SHA1}"
