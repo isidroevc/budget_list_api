@@ -17,5 +17,5 @@ workflows:
           platform: linux/amd64
           push_image: true
           region: ${AWS_DEFAULT_REGION}
-          repo: blist/budget_list
+          repo: blist/api
           tag: "latest"
